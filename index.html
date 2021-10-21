@@ -27,33 +27,33 @@
     </div>
     <div id="main-content">
         <div id="first-row">
-            <i class="fa-solid fa-c"></i>
-            <i class="fa-solid fa-plus-minus"> </i>
-            <i class="fa-solid fa-percent"></i>
-            <i class="fa-solid fa-divide"></i>
+            <i class="fa-solid fa-c" onclick="clearAll()"></i>
+            <i class="fa-solid fa-plus-minus" onclick="addNumber('-')"> </i>
+            <i class="fa-solid fa-percent" onclick="addOperator('%')" ></i>
+            <i class="fa-solid fa-divide" onclick="addOperator('/')"></i>
         </div>
         <div id="second-row">
-            <i class="fa-solid fa-7"></i>
-            <i class="fa-solid fa-8"></i>
-            <i class="fa-solid fa-9"></i>
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-7" onclick="addNumber('7')"></i>
+            <i class="fa-solid fa-8" onclick="addNumber('8')"></i>
+            <i class="fa-solid fa-9" onclick="addNumber('9')"></i>
+            <i class="fa-solid fa-xmark" onclick="addOperator('*')"></i>
         </div>
         <div id="third-row">
-            <i class="fa-solid fa-4"></i>
-            <i class="fa-solid fa-5"></i>
-            <i class="fa-solid fa-6"></i>
-            <i class="fa-solid fa-plus"></i>
+            <i class="fa-solid fa-4" onclick="addNumber('4')"></i>
+            <i class="fa-solid fa-5" onclick="addNumber('5')"></i>
+            <i class="fa-solid fa-6" onclick="addNumber('6')"></i>
+            <i class="fa-solid fa-plus" onclick="addOperator('+')"></i>
         </div>
         <div id="fourth-row">
-            <i class="fa-solid fa-1"></i>
-            <i class="fa-solid fa-2"></i>
-            <i class="fa-solid fa-3"></i>
-            <i class="f a-solid fa-minus"></i>
+            <i class="fa-solid fa-1" onclick="addNumber('1')"></i>
+            <i class="fa-solid fa-2" onclick="addNumber('2')"></i>
+            <i class="fa-solid fa-3" onclick="addNumber('3')"></i>
+            <i class="f a-solid fa-minus" onclick="addOperator('-')"></i>
         </div>
         <div id="fifth-row">
-            <i class="fa-solid fa-0"></i>
-            <i class="fa-solid fa-circle"></i>
-            <i class="fa-solid fa-equals"></i>
+            <i class="fa-solid fa-0" onclick="addNumber('0')"></i>
+            <i class="fa-solid fa-circle" onclick="addNumber('.')"></i>
+            <i class="fa-solid fa-equals" onclick="equal()"></i>
         </div>
     </div>
 </body>

@@ -16,7 +16,7 @@ header, #main-content, #result {
     position: relative;
     margin: 0 auto;
     width: 320px;
-    background-color: #37475a;  
+    background-color: #37475a;
     box-shadow: 0 19px 38px rgba(19, 19, 19, .24), 0 15px 12px rgba(19, 19, 19, .12);
 }
 
@@ -26,8 +26,4 @@ header, #main-content, #result {
 
 i{
     padding: 2em;
-}
-
-div{
-    padding: 15em;
 }
