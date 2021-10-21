@@ -27,3 +27,21 @@ header, #main-content, #result {
 i{
     padding: 2em;
 }
+
+#button-top-right{
+    cursor:pointer;
+}
+.oscuro{
+    background-color: #1f1f1f;
+    color: #f1eded;   
+}
+
+fa-solid.fa-toggle-off{
+}
+#icons-top-left{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr;
+    cursor:pointer;
+}
+
+
