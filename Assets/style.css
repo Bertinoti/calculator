@@ -1,3 +1,4 @@
+
 html, body{
     position: relative;
     width: 100%;
@@ -10,6 +11,8 @@ html, body{
 body{
     padding-top:20px;
     user-select: none;
+    box-sizing: content-box;
+    
 }
 
 header, #main-content, #result, #showOperation {
@@ -48,7 +51,8 @@ i{
     padding:20px;
     cursor:pointer;
     border-radius: 3px;
-    font-size: 10px;
+    font-size: 20px;
+    text-align: center;
 }
 #first-row i:hover{
         background: rgb(96, 104, 150)
@@ -63,7 +67,8 @@ i{
     padding:20px;
     cursor:pointer;
     border-radius: 3px;
-    font-size: 10px;
+    font-size: 20px;
+    text-align: center;
 }
 #second-row i:hover{
     background-color: rgb(96, 104, 150);
@@ -78,7 +83,8 @@ i{
     padding:20px;
     cursor:pointer;
     border-radius: 3px;
-    font-size: 10px;
+    font-size: 20px;
+    text-align: center;
 }
 #third-row i:hover{
     background-color: rgb(96, 104, 150);
@@ -95,7 +101,8 @@ i{
     padding:20px;
     cursor:pointer;
     border-radius: 3px;
-    font-size: 10px;
+    font-size: 20px;
+    text-align: center;
 }
 #fourth-row i:hover{
     background-color: rgb(96, 104, 150);
@@ -108,34 +115,50 @@ i{
 }
 #fifth-row i{
     background: #37475A;
-    padding:20px;
+    padding-top: 10px;
     cursor:pointer;
     border-radius: 3px;
+    font-size: px;
+    text-align: center;
 }
 #fifth-row i:hover{
     background-color: rgb(96, 104, 150);
 }
 
-#circulo{
-    font-size: 4px;
-    vertical-align: text-bottom;
+#circulo i{
+    background: #37475A;
+    cursor:pointer;
+    border-radius: 3px;
+    text-align: center;
 }
 #zeroo{
-    font-size: 10px;
+    background: #37475A;
+    padding:20px;
+    cursor:pointer;
+    border-radius: 3px;
+    font-size: 20px;
+    text-align: center;
 }
 
 #equalsidrow{
     grid-column: span 2;
+    background: #37475A;
+    padding:20px;
+    cursor:pointer;
+    border-radius: 3px;
+    font-size: 20px;
     text-align: center;
     font-size: 15px;
 }
-
 #icons-top-left{
     display: grid;
     grid-template-columns: 55px 115px 35px 35px 35px;
     grid-template-rows: 30px;
     grid-column-gap: 10px;
     grid-row-gap: 1em;
+    font-size: 15px;
+    text-align: center;
+    box-sizing: border-box;
 }
 #icons-top-left .i{
     background: #37475A;
@@ -149,4 +172,14 @@ i{
 }
 #rectangulo{
     cursor:pointer;
+}
+#calculadoracentered{
+    margin-top: 110px;
+}
+#result{
+    padding: 5x;
+    height: 30px;
+}
+#result p{
+font-size: 20px;
 }

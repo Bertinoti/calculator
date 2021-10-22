@@ -58,7 +58,7 @@ function addOperator(operator){
     if (resToArr.length >= 3 ) {
         console.log(resToArr.length)
         equal()
-        
+
         
     }else{
         resToArr.push(result, operator);

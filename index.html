@@ -12,18 +12,16 @@
 </head>
 <body>
     <header>
+<div id="calculadoracentered">
         <div id="icons-top-left">
             <i class="fa-solid fa-toggle-off fa-xs" onclick="visualiza_segundo()" id="primero" style="visibility:visible; display:block"></i>
             <i class="fa-solid fa-toggle-on fa-xs" id="segundo" style="visibility:hidden; display:none;" onclick="visualiza_primero()"></i>
-            <i></i>
+            <i class="fa-solid fa-book fa-xs" onclick="visualiza_segundo()" id="primero" style="visibility:visible; display:block"></i>
+            </i>
             <i class="fa-solid fa-window-minimize fa-2xs" id="ventana"></i>
             <i class="fa-solid fa-window-restore fa-2xs" id="cuadrado" ></i>
             <i class="fa-solid fa-rectangle-xmark fa-2xs" id="rectangulo"></i>
         </div>
-        <!-- <div id="button-top-right" onclick="cambiarModo()"></button>
-            <i class="fa-solid fa-toggle-off" onclick="cambiarModo()" style="visibility:hidden; display:none;"></i>
-            <i class="fa-solid fa-toggle-on" style="visibility:visible; display:block;></i>
-        </div>-->
     </header>
     <div>
         <div id='showOperation'> Show Operations</div>
@@ -56,9 +54,10 @@
         </div>
         <div id="fifth-row">
             <i class="fa-solid fa-0" onclick="addNumber('0')" id="zeroo"></i>
-            <i class="fa-solid fa-circle" onclick="addNumber('.')" id="circulo"></i>
+            <i class="fa-solid fa-circle fa-2xs" onclick="addNumber('.')" id="circulo"></i>
             <i class="fa-solid fa-equals" onclick="equal()" id="equalsidrow"></i>
         </div>
     </div>
+</div>
 </body>
 </html>
