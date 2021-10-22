@@ -36,12 +36,115 @@ i{
     color: #f1eded;   
 }
 
-fa-solid.fa-toggle-off{
+#first-row{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr ;
+    grid-gap: 5px;
 }
+#first-row i{
+    background: #37475A;
+    padding:20px;
+    cursor:pointer;
+    border-radius: 3px;
+    font-size: 10px;
+}
+#first-row i:hover{
+        background: rgb(96, 104, 150)
+}
+#second-row {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr ;
+    grid-gap: 5px;
+}
+#second-row i{
+    background: #37475A;
+    padding:20px;
+    cursor:pointer;
+    border-radius: 3px;
+    font-size: 10px;
+}
+#second-row i:hover{
+    background-color: rgb(96, 104, 150);
+}
+#third-row{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr ;
+    grid-gap: 5px;
+}
+#third-row i{
+    background: #37475A;
+    padding:20px;
+    cursor:pointer;
+    border-radius: 3px;
+    font-size: 10px;
+}
+#third-row i:hover{
+    background-color: rgb(96, 104, 150);
+}
+
+
+#fourth-row{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr ;
+    grid-gap: 5px;
+}
+#fourth-row i{
+    background: #37475A;
+    padding:20px;
+    cursor:pointer;
+    border-radius: 3px;
+    font-size: 10px;
+}
+#fourth-row i:hover{
+    background-color: rgb(96, 104, 150);
+}
+#fifth-row{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr ;
+    grid-gap: 5px;
+    font-size: 10px;
+}
+#fifth-row i{
+    background: #37475A;
+    padding:20px;
+    cursor:pointer;
+    border-radius: 3px;
+}
+#fifth-row i:hover{
+    background-color: rgb(96, 104, 150);
+}
+
+#circulo{
+    font-size: 4px;
+    vertical-align: text-bottom;
+}
+#zeroo{
+    font-size: 10px;
+}
+
+#equalsidrow{
+    grid-column: span 2;
+    text-align: center;
+    font-size: 15px;
+}
+
 #icons-top-left{
     display: grid;
-    grid-template-columns:1fr 1fr 1fr;
+    grid-template-columns: 55px 115px 35px 35px 35px;
+    grid-template-rows: 30px;
+    grid-column-gap: 10px;
+    grid-row-gap: 1em;
+}
+#icons-top-left .i{
+    background: #37475A;
+    border-radius: 3px;
+}
+#ventana{
     cursor:pointer;
 }
-
-
+#cuadrado{
+    cursor:pointer;
+}
+#rectangulo{
+    cursor:pointer;
+}

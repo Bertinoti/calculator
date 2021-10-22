@@ -87,7 +87,22 @@ function clearAll(){
 
 }
 
-function cambiarModo() {
-    var cuerpoweb = document.body;
+
+var cuerpoweb = document.body;
+var primeravisualiza =document.getElementById("primero")
+var segundavisualiza= document.getElementById("segunda")
+
+function visualiza_primero() {
+    document.getElementById('primero').style.visibility='visible';
+    document.getElementById('primero').style.display='block';
+    document.getElementById('segundo').style.visibility='hidden';
+    document.getElementById('segundo').style.display='none';
     cuerpoweb.classList.toggle("oscuro");
-}
+ };
+ function visualiza_segundo() {
+    document.getElementById('segundo').style.visibility='visible';
+    document.getElementById('segundo').style.display='block';
+    document.getElementById('primero').style.visibility='hidden';
+    document.getElementById('primero').style.display='none';
+    cuerpoweb.classList.toggle("oscuro");
+ };

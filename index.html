@@ -13,14 +13,18 @@
 <body>
     <header>
         <div id="icons-top-left">
-            <i class="fa-solid fa-window-minimize"></i>
-            <i class="fa-solid fa-window-restore"></i>
-            <i class="fa-solid fa-rectangle-xmark"></i>
+            <i class="fa-solid fa-toggle-off fa-xs" onclick="visualiza_segundo()" id="primero" style="visibility:visible; display:block"></i>
+            <i class="fa-solid fa-toggle-on fa-xs" id="segundo" style="visibility:hidden; display:none;" onclick="visualiza_primero()"></i>
+            <i></i>
+            <i class="fa-solid fa-window-minimize fa-2xs" id="ventana"></i>
+            <i class="fa-solid fa-window-restore fa-2xs" id="cuadrado" ></i>
+            <i class="fa-solid fa-rectangle-xmark fa-2xs" id="rectangulo"></i>
+            
         </div>
-        <div id="button-top-right" onclick="cambiarModo()"></button>
-            <i class="fa-solid fa-toggle-off"></i>
-            <i class="fa-solid fa-toggle-on"></i>
-        </div>
+        <!-- <div id="button-top-right" onclick="cambiarModo()"></button>
+            <i class="fa-solid fa-toggle-off" onclick="cambiarModo()" style="visibility:hidden; display:none;"></i>
+            <i class="fa-solid fa-toggle-on" style="visibility:visible; display:block;></i>
+        </div>-->
     </header>
     <div id="result">
     </div>
@@ -47,12 +51,12 @@
             <i class="fa-solid fa-1" onclick="addNumber('1')"></i>
             <i class="fa-solid fa-2" onclick="addNumber('2')"></i>
             <i class="fa-solid fa-3" onclick="addNumber('3')"></i>
-            <i class="f a-solid fa-minus" onclick="addOperator('-')"></i>
+            <i class="fa-solid fa-minus" onclick="addOperator('-')"></i>
         </div>
         <div id="fifth-row">
-            <i class="fa-solid fa-0" onclick="addNumber('0')"></i>
-            <i class="fa-solid fa-circle" onclick="addNumber('.')"></i>
-            <i class="fa-solid fa-equals" onclick="equal()"></i>
+            <i class="fa-solid fa-0" onclick="addNumber('0')" id="zeroo"></i>
+            <i class="fa-solid fa-circle" onclick="addNumber('.')" id="circulo"></i>
+            <i class="fa-solid fa-equals" onclick="equal()" id="equalsidrow"></i>
         </div>
     </div>
 </body>
