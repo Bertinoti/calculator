@@ -19,19 +19,20 @@
             <i class="fa-solid fa-window-minimize fa-2xs" id="ventana"></i>
             <i class="fa-solid fa-window-restore fa-2xs" id="cuadrado" ></i>
             <i class="fa-solid fa-rectangle-xmark fa-2xs" id="rectangulo"></i>
-            
         </div>
         <!-- <div id="button-top-right" onclick="cambiarModo()"></button>
             <i class="fa-solid fa-toggle-off" onclick="cambiarModo()" style="visibility:hidden; display:none;"></i>
             <i class="fa-solid fa-toggle-on" style="visibility:visible; display:block;></i>
         </div>-->
     </header>
-    <div id="result">
+    <div>
+        <div id='showOperation'> Show Operations</div>
+        <div id="result"> Result </div>
     </div>
     <div id="main-content">
         <div id="first-row">
             <i class="fa-solid fa-c" onclick="clearAll()"></i>
-            <i class="fa-solid fa-plus-minus" onclick="convertSign()"> </i>
+            <i class="fa-solid fa-plus-minus" onclick="convertSign('+-')"> </i>
             <i class="fa-solid fa-percent" onclick="addOperator('%')" ></i>
             <i class="fa-solid fa-divide" onclick="addOperator('/')"></i>
         </div>
