@@ -78,15 +78,14 @@ function visualiza_primero() {
     document.getElementById('segundo').style.visibility='hidden';
     document.getElementById('segundo').style.display='none';
     cuerpoweb.classList.toggle("oscuro");
- };
- function visualiza_segundo() {
+};
+function visualiza_segundo() {
     document.getElementById('segundo').style.visibility='visible';
     document.getElementById('segundo').style.display='block';
     document.getElementById('primero').style.visibility='hidden';
     document.getElementById('primero').style.display='none';
     cuerpoweb.classList.toggle("oscuro");
- };
-}
+};
 
 function convertSign() {
     if(result != '') {
