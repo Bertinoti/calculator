@@ -186,3 +186,15 @@ function convertSign() {
         newP.innerHTML= result;
     }
 }
+
+function oculto() {
+    var desaparecer = document.getElementById("myDIV");
+    if (desaparecer.style.display === "none") {
+        desaparecer.style.display = "block";
+    } else {
+        desaparecer.style.display = "none";
+    }
+}
+
+function historic(){
+}
