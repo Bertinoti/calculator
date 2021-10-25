@@ -6,72 +6,104 @@ var historic=[];
 var cuerpoweb = document.body;
 var displayRes= document.getElementById('result');
 var displayOperation = document.getElementById('showOperation');
-var primeravisualiza =document.getElementById("primero");
-var segundavisualiza= document.getElementById("segunda");
-var newP = document.createElement('p');
-var dosPs= document.createElement('p');
+//var primeravisualiza =document.getElementById("primero");
+//var segundavisualiza= document.getElementById("segunda");
+var pUno = document.createElement('p');
+var pDos= document.createElement('p');
+var contHist= historic.length
+var historicResult= historic[contHist-1]
+
 
 function addNumber(num){
     result+= num;
+    console.log(result)
     showRes(num);
 }
 
-function showNUmber (){
-    newP.innerHTML = result;
-    displayRes.appendChild(newP);
+function showNumber (){
+    pUno.innerHTML = result;
+    displayRes.appendChild(pUno);
 }
 
 function showNumberUp(){
-    dosPs.innerHTML=''
-    contHistoric= historic.length;
-    console.log(contHistoric)
-    if (contHistoric < 2) {
-        dosPs.innerHTML = `${resToArr[0]} ${resToArr[1]} `;
-        console.log(dosPs);
-        displayOperation.appendChild(dosPs);
+    pUno.innerHTML= ''
+    if (contHist < 2) {
+        pDos.innerHTML = `${resToArr[0]} ${resToArr[1]} `;
+        displayOperation.appendChild(pDos);
     }else{
-        dosPs.innerHTML = `${historic[0]} ${historic[1]} ${historic[2]} `;
-        console.log(dosPs);
-        displayOperation.appendChild(dosPs);
+        pDos.innerHTML = `${historicResult[0]} ${historicResult[1]} ${historicResult[2]} `;
+        displayOperation.appendChild(pDos);
     }
 }
 
 function showResult (){
-    dosPs.innerHTML = `${historic[0]} ${historic[1]} ${historic[2]} `;
-    displayOperation.appendChild(dosPs);
+    contHist= historic.length
+    historicResult= historic[contHist-1]
+    pDos.innerHTML =`${historicResult[0]} ${historicResult[1]} ${historicResult[2]} =` ;
+    displayOperation.appendChild(pDos);
 
-    newP.innerHTML = `${historic[3]} `;
-    displayOperation.appendChild(newP);
+    pUno.innerHTML = `${historicResult[3]} `;
+    displayRes.appendChild(pUno);
+}
+
+function showResultEqual(){
+    pDos= historicResult[4]
+    displayOperation.appendChild(pDos)
 }
 
 function showRes(res){
     if( res == '+' || res == '-' || res == '*' || res == '%' || res == '/' || res == '+-'){
-        showNumberUp();
+        if (historicResult< 3) {
+            showResultEqual()
+        }
+        else{showNumberUp(); }
     }else
     if (res === '=') {
         showResult();
     }else{
-        showNUmber();
+        showNumber();
     }
 
 }
 
+function mostrar (){
+    cont = historic.length;
+    console.log(historic[cont - 1])
+}
 function addOperator(operator){
-    if (resToArr.length >= 3 ) {
-        //Comprovar si esta intercalado numero y operacion
-        console.log(resToArr.length);
-        equal();
+    if (resToArr.length >= 2 ) {
+        console.log(resToArr.length)
+        equal()
+        resToArr.push(result, operator);
+        showRes(operator);
+        result='';
     }else{
-        //Comprovar si resultado es un numero
-        if( !isNaN( result.slice(0, -1) )  && result !== '') {
-            resToArr.push(result, operator);
-            showRes(operator);
-            result='';
-        } else {
-            resToArr.push(0, operator);
-        }
+        resToArr.push(result, operator);
+        showRes(operator);
+        result='';
     }
     return resToArr;
+
+    // if (resToArr.length >= 2 ) {
+    //     //console.log(resToArr.length)
+    //     equal()
+    //     resToArr.push(result, operator);
+    //     showRes(operator);
+    //     result='';
+    //     mostrar()
+    // }else{
+    //     //Comprovar si resultado es un numero
+    //     if( !isNaN( result.slice(0, -1) )  && (result !== '' || ) {
+    //         resToArr.push(result, operator);
+    //         showRes(operator);
+    //         result='';
+    //         mostrar()
+    //     } else {
+    //         resToArr.push(0, operator);
+    //         mostrar()
+    //     }
+    //}
+    //return resToArr;
 }
 
 function equal(){
@@ -117,17 +149,19 @@ function equal(){
     historic.push(resToArr);
     console.log(historic)
 
+    mostrar()
+
     resToArr=[];
     result= holdTotal;
     total=null;
-    newP.innerHTML += ` =  ${holdTotal}`;
+    //newP.innerHTML += ` =  ${holdTotal}`;
 }
 
 function clearAll(){
     result='';
     resToArr=[];
-    newP.innerHTML= '';
-    dosPs.innerHTML= '';
+    pUno.innerHTML= '';
+    pDos.innerHTML= '';
 }
 
 function visualiza_primero() {
