@@ -200,5 +200,17 @@ function oculto() {
     }
 }
 
-function historic(){
+
+function showHistoric(){
+    console.log("historico")
+    let historico=document.getElementById("historico")
+    console.log(historic);
+historic.forEach(element => {
+    let itemP=document.createElement("p")
+    itemP.innerHTML= element.toString()
+    historico.appendChild(itemP)
+
+    
+    console.log(itemP.innerHTML)
+});
 }
