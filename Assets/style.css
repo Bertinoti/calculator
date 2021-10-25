@@ -112,6 +112,7 @@ i{
     grid-template-columns:1fr 1fr 1fr 1fr ;
     grid-gap: 5px;
     font-size: 10px;
+    align-self: center;
 }
 #fifth-row i{
     background: #37475A;
@@ -120,6 +121,7 @@ i{
     border-radius: 3px;
     font-size: px;
     text-align: center;
+    align-self: center;
 }
 #fifth-row i:hover{
     background-color: rgb(96, 104, 150);
