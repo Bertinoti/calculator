@@ -181,3 +181,18 @@ i{
 #result p{
 font-size: 20px;
 }
+.pcaja{
+    border: solid black;
+    position: absolute;
+    top: 42%;
+    left: 71.5%;
+    transform: translate(-50%, -50%);
+    height: 350px;
+    width: 320px;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgb(164, 176, 211);
+}
+#historial{
+    text-align: center;
+}

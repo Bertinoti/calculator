@@ -92,3 +92,17 @@ function convertSign() {
         (Math.sign(result) == 1 || result == '0') ? result = -result : result = Math.abs(result);
     }
 }
+
+function oculto() {
+    var desaparecer = document.getElementById("myDIV");
+    if (desaparecer.style.display === "none") {
+        desaparecer.style.display = "block";
+    } else {
+        desaparecer.style.display = "none";
+    }
+}
+
+function historic(){
+}
+
+
