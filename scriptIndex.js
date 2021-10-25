@@ -26,13 +26,20 @@ function showNumber (){
 }
 
 function showNumberUp(){
-    pUno.innerHTML= ''
-    if (contHist < 2) {
-        pDos.innerHTML = `${resToArr[0]} ${resToArr[1]} `;
+    console.log(contHist)
+    if( contHist > 3){
+        pDos.innerHTML = ` ${historicResult[3]} `;
         displayOperation.appendChild(pDos);
+        displayRes=""
     }else{
-        pDos.innerHTML = `${historicResult[0]} ${historicResult[1]} ${historicResult[2]} `;
-        displayOperation.appendChild(pDos);
+        pUno.innerHTML= ''
+        if (contHist < 2) {
+            pDos.innerHTML = `${resToArr[0]} ${resToArr[1]} `;
+            displayOperation.appendChild(pDos);
+        }else{
+            pDos.innerHTML = `${historicResult[0]} ${historicResult[1]} ${historicResult[2]} `;
+            displayOperation.appendChild(pDos);
+        }
     }
 }
 
@@ -53,10 +60,7 @@ function showResultEqual(){
 
 function showRes(res){
     if( res == '+' || res == '-' || res == '*' || res == '%' || res == '/' || res == '+-'){
-        if (historicResult< 3) {
-            showResultEqual()
-        }
-        else{showNumberUp(); }
+        showNumberUp();
     }else
     if (res === '=') {
         showResult();
@@ -183,7 +187,7 @@ function visualiza_segundo() {
 function convertSign() {
     if(result != '') {
         (Math.sign(result) == 1 || result == '0') ? result = -result : result = Math.abs(result);
-        newP.innerHTML= result;
+        pUno.innerHTML= result;
     }
 }
 
