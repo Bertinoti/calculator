@@ -15,7 +15,7 @@ body{
     
 }
 
-header, #main-content, #result {
+header, #main-content, #result, #showOperation {
     position: relative;
     margin: 0 auto;
     width: 320px;
@@ -23,10 +23,12 @@ header, #main-content, #result {
     box-shadow: 0 19px 38px rgba(19, 19, 19, .24), 0 15px 12px rgba(19, 19, 19, .12);
 }
 
-#result{
+#result, #showOperation{
     padding: .8em 0;
 }
-
+#showOperation{
+    background-color: #7f8388;
+}
 i{
     padding: 2em;
 }
