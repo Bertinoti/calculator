@@ -8,16 +8,18 @@ var displayRes= document.getElementById('result');
 var displayOperation = document.getElementById('showOperation');
 //var primeravisualiza =document.getElementById("primero");
 //var segundavisualiza= document.getElementById("segunda");
-var pUno = document.createElement('p');
-var pDos= document.createElement('p');
+var pUno = document.createElement('div');
+var pDos= document.createElement('div');
 var contHist= historic.length
 var historicResult= historic[contHist-1]
+var disponibleOpe = false;
 
 
 function addNumber(num){
-    result+= num;
-    console.log(result)
-    showRes(num);
+        result+= num;
+        console.log(result)
+        showRes(num);
+        disponibleOpe = true;
 }
 
 function showNumber (){
@@ -26,7 +28,7 @@ function showNumber (){
 }
 
 function showNumberUp(){
-    console.log(contHist)
+    //console.log(contHist)
     if( contHist > 3){
         pDos.innerHTML = ` ${historicResult[3]} `;
         displayOperation.appendChild(pDos);
@@ -75,17 +77,22 @@ function mostrar (){
     console.log(historic[cont - 1])
 }
 function addOperator(operator){
-    if (resToArr.length >= 2 ) {
-        console.log(resToArr.length)
-        equal()
-        resToArr.push(result, operator);
-        showRes(operator);
-        result='';
-    }else{
-        resToArr.push(result, operator);
-        showRes(operator);
-        result='';
+    if(disponibleOpe) {
+        if (resToArr.length >= 2 ) {
+            //console.log(resToArr.length)
+            equal()
+            resToArr.push(result, operator);
+            showRes(operator);
+            result='';
+            disponibleOpe = false
+        }else{
+            resToArr.push(result, operator);
+            showRes(operator);
+            result='';
+            disponibleOpe = false
+            }
     }
+    
     return resToArr;
 
     // if (resToArr.length >= 2 ) {
@@ -158,6 +165,7 @@ function equal(){
     resToArr=[];
     result= holdTotal;
     total=null;
+    disponibleOpe = true
     //newP.innerHTML += ` =  ${holdTotal}`;
 }
 

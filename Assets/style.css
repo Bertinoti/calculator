@@ -12,7 +12,7 @@ body{
     padding-top:20px;
     user-select: none;
     box-sizing: content-box;
-    
+    font-family: 'Lato', sans-serif;
 }
 
 header, #main-content, #result, #showOperation {
@@ -21,13 +21,19 @@ header, #main-content, #result, #showOperation {
     width: 320px;
     background-color: #37475a;
     box-shadow: 0 19px 38px rgba(19, 19, 19, .24), 0 15px 12px rgba(19, 19, 19, .12);
+    font-size: 1.8em;
+    text-align: right;
 }
 
 #result, #showOperation{
+    height: 40px;
     padding: .8em 0;
 }
+
 #showOperation{
     background-color: #7f8388;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 i{
     padding: 2em;
