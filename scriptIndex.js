@@ -12,6 +12,8 @@ var pUno = document.createElement('p');
 var pDos= document.createElement('p');
 var contHist= historic.length
 var historicResult= historic[contHist-1]
+var historico=document.getElementById("historico")
+
 
 
 function addNumber(num){
@@ -67,6 +69,7 @@ function showRes(res){
 }
 
 function mostrar (){
+    showHistoric()
     cont = historic.length;
     console.log(historic[cont - 1])
 }
@@ -190,6 +193,7 @@ function convertSign() {
 function oculto() {
     var desaparecer = document.getElementById("myDIV");
     if (desaparecer.style.display === "none") {
+        showHistoric()
         desaparecer.style.display = "block";
     } else {
         desaparecer.style.display = "none";
@@ -198,15 +202,19 @@ function oculto() {
 
 
 function showHistoric(){
-    console.log("historico")
-    let historico=document.getElementById("historico")
-    console.log(historic);
+    resetHistorichtml()
 historic.forEach(element => {
     let itemP=document.createElement("p")
-    itemP.innerHTML= element.toString()
+
+    itemP.innerHTML= `${element[0]} ${element[1]} ${element[2]} = ${element[3]}`
     historico.appendChild(itemP)
 
-    
+
     console.log(itemP.innerHTML)
 });
 }
+
+function resetHistorichtml(){
+   while(historico.firstChild){
+    historico.removeChild(historico.lastChild)}
+   }

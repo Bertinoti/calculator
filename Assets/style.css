@@ -185,9 +185,9 @@ font-size: 20px;
 }
 .pcaja{
     border: solid black;
-    position: absolute;
-    top: 42%;
-    left: 71.5%;
+position:absolute;
+ top:200px;
+ right: 10px;
     transform: translate(-50%, -50%);
     height: 350px;
     width: 320px;
