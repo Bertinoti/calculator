@@ -14,58 +14,60 @@
     <title>Calculator</title>
 </head>
 <body>
-    <header>
-<div id="calculadoracentered">
-        <div id="icons-top-left">
-            <i class="fa-solid fa-toggle-off fa-xs" onclick="visualiza_segundo()" id="primero" style="visibility:visible; display:block"></i>
-            <i class="fa-solid fa-toggle-on fa-xs" id="segundo" style="visibility:hidden; display:none;" onclick="visualiza_primero()"></i>
-            <i class="fa-solid fa-book fa-xs" onclick="oculto()"></i>
-            </i>
-            <i class="fa-solid fa-window-minimize fa-2xs" id="ventana"></i>
-            <i class="fa-solid fa-window-restore fa-2xs" id="cuadrado" ></i>
-            <i class="fa-solid fa-rectangle-xmark fa-2xs" id="rectangulo"></i>
+    <div id="allContainer">
+        <div id="calculator-content">
+            <header>
+                <div id="calculadoracentered">
+                        <div id="icons-top-left">
+                            <i class="fa-solid fa-toggle-off fa-xs" onclick="visualiza_segundo()" id="primero" style="visibility:visible; display:block"></i>
+                            <i class="fa-solid fa-toggle-on fa-xs" id="segundo" style="visibility:hidden; display:none;" onclick="visualiza_primero()"></i>
+                            <i class="fa-solid fa-book fa-xs" onclick="oculto()"></i>
+                            </i>
+                            <i class="fa-solid fa-window-minimize fa-2xs" id="ventana"></i>
+                            <i class="fa-solid fa-window-restore fa-2xs" id="cuadrado" ></i>
+                            <i class="fa-solid fa-rectangle-xmark fa-2xs" id="rectangulo"></i>
+                        </div>
+                </div>
+            </header>
+            <div>
+                <div id='showOperation'></div>
+                <div id="result"></div>
+            </div>
+            <div id="main-content">
+                <div id="first-row">
+                    <i class="fa-solid fa-c" onclick="clearAll()"></i>
+                    <i class="fa-solid fa-plus-minus" onclick="convertSign('+-')"> </i>
+                    <i class="fa-solid fa-percent" onclick="addOperator('%')" ></i>
+                    <i class="fa-solid fa-divide" onclick="addOperator('/')"></i>
+                </div>
+                <div id="second-row">
+                    <i class="fa-solid fa-7" onclick="addNumber('7')"></i>
+                    <i class="fa-solid fa-8" onclick="addNumber('8')"></i>
+                    <i class="fa-solid fa-9" onclick="addNumber('9')"></i>
+                    <i class="fa-solid fa-xmark" onclick="addOperator('*')"></i>
+                </div>
+                <div id="third-row">
+                    <i class="fa-solid fa-4" onclick="addNumber('4')"></i>
+                    <i class="fa-solid fa-5" onclick="addNumber('5')"></i>
+                    <i class="fa-solid fa-6" onclick="addNumber('6')"></i>
+                    <i class="fa-solid fa-plus" onclick="addOperator('+')"></i>
+                </div>
+                <div id="fourth-row">
+                    <i class="fa-solid fa-1" onclick="addNumber('1')"></i>
+                    <i class="fa-solid fa-2" onclick="addNumber('2')"></i>
+                    <i class="fa-solid fa-3" onclick="addNumber('3')"></i>
+                    <i class="fa-solid fa-minus" onclick="addOperator('-')"></i>
+                </div>
+                <div id="fifth-row">
+                    <i class="fa-solid fa-0" onclick="addNumber('0')" id="zeroo"></i>
+                    <i class="fa-solid fa-circle fa-2xs" onclick="addNumber('.')" id="circulo"></i>
+                    <i class="fa-solid fa-equals" onclick="equal(), showRes('=')" id="equalsidrow"></i>
+                </div>
+            </div>
         </div>
-</div>
-
-    </header>
-    <div>
-        <div id='showOperation'></div>
-        <div id="result"></div>
-    </div> 
-    <div id="main-content">
-        <div id="first-row">
-            <i class="fa-solid fa-c" onclick="clearAll()"></i>
-            <i class="fa-solid fa-plus-minus" onclick="convertSign('+-')"> </i>
-            <i class="fa-solid fa-percent" onclick="addOperator('%')" ></i>
-            <i class="fa-solid fa-divide" onclick="addOperator('/')"></i>
+        <div class="pcaja" id="myDIV"  style="border:1px solid black;">
+            <div id="historico"></div>
         </div>
-        <div id="second-row">
-            <i class="fa-solid fa-7" onclick="addNumber('7')"></i>
-            <i class="fa-solid fa-8" onclick="addNumber('8')"></i>
-            <i class="fa-solid fa-9" onclick="addNumber('9')"></i>
-            <i class="fa-solid fa-xmark" onclick="addOperator('*')"></i>
-        </div>
-        <div id="third-row">
-            <i class="fa-solid fa-4" onclick="addNumber('4')"></i>
-            <i class="fa-solid fa-5" onclick="addNumber('5')"></i>
-            <i class="fa-solid fa-6" onclick="addNumber('6')"></i>
-            <i class="fa-solid fa-plus" onclick="addOperator('+')"></i>
-        </div>
-        <div id="fourth-row">
-            <i class="fa-solid fa-1" onclick="addNumber('1')"></i>
-            <i class="fa-solid fa-2" onclick="addNumber('2')"></i>
-            <i class="fa-solid fa-3" onclick="addNumber('3')"></i>
-            <i class="fa-solid fa-minus" onclick="addOperator('-')"></i>
-        </div>
-        <div id="fifth-row">
-            <i class="fa-solid fa-0" onclick="addNumber('0')" id="zeroo"></i>
-            <i class="fa-solid fa-circle fa-2xs" onclick="addNumber('.')" id="circulo"></i>
-            <i class="fa-solid fa-equals" onclick="equal(), showRes('=')" id="equalsidrow"></i>
-        </div>
-</div>
-    <div class="pcaja" id="myDIV"  style="border:1px solid black;">
-        <div id="historico">
-        </div>
-        </div>
+    </div>
 </body>
 </html>
