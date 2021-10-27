@@ -15,7 +15,7 @@ body{
     font-family: 'Lato', sans-serif;
 }
 
-header, #main-content, #result, #showOperation {
+header, #main-content, #result, #screenOperation {
     position: relative;
     margin: 0 auto;
     width: 320px;
@@ -25,12 +25,12 @@ header, #main-content, #result, #showOperation {
     text-align: right;
 }
 
-#result, #showOperation{
+#result, #screenOperation{
     height: 40px;
     padding: .8em 0;
 }
 
-#showOperation{
+#screenOperation{
     background-color: #7f8388;
     padding-top: 0;
     padding-bottom: 0;

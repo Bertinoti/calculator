@@ -1,232 +1,89 @@
-var result='';
-var total;
-var holdTotal=0;
-var resToArr=[];
-var historic=[];
-var cuerpoweb = document.body;
-var displayRes= document.getElementById('result');
-var displayOperation = document.getElementById('showOperation');
-//var primeravisualiza =document.getElementById("primero");
-//var segundavisualiza= document.getElementById("segunda");
-var pUno = document.createElement('div');
-var pDos= document.createElement('div');
-var contHist= historic.length
-var historicResult= historic[contHist-1]
-var disponibleOpe = false;
-var historico=document.getElementById("historico")
+const OPERATORS = ["*", "/", "+", "-"];
+const SCREEN_OPERATION = document.getElementById('screenOperation');
+const SCREEN_RESULT = document.getElementById('screenResult');
 
+let numberCha = '';
+let arrEntry = [];
+let historic = [];
+let holdTotal = 0;
 
+function calculate(left, right, operator) {
+    switch (operator) {
+        case "*": {
+            return left * right;
+        }
+        case "/": {
+            return left / right;
+        }
+        case "+": {
+            return left + right;
+        }
+        case "-": {
+            return left - right;
+        }
+    }
+}
 
+// Add number and call function to display
 function addNumber(num){
-        result+= num;
-        console.log(result)
-        showRes(num);
-        disponibleOpe = true;
+    numberCha += num;
 }
 
-function showNumber (){
-    pUno.innerHTML = result;
-    displayRes.appendChild(pUno);
+function isOperator(value){
+    return OPERATORS.includes(value);
 }
 
-function showNumberUp(){
-    //console.log(contHist)
-    if( contHist > 3){
-        pDos.innerHTML = ` ${historicResult[3]} `;
-        displayOperation.appendChild(pDos);
-        displayRes=""
-    }else{
-        pUno.innerHTML= ''
-        if (contHist < 2) {
-            pDos.innerHTML = `${resToArr[0]} ${resToArr[1]} `;
-            displayOperation.appendChild(pDos);
-        }else{
-            pDos.innerHTML = `${historicResult[0]} ${historicResult[1]} ${historicResult[2]} `;
-            displayOperation.appendChild(pDos);
-        }
+function addOperator(operator) {
+    if(arrEntry.length > 1) {
+        isDuplicatedOperator(operator);
+    } else {
+        arrEntry.push(numberCha,operator);
+        numberCha = '';
     }
 }
 
-function showResult (){
-    contHist= historic.length
-    historicResult= historic[contHist-1]
-    pDos.innerHTML =`${historicResult[0]} ${historicResult[1]} ${historicResult[2]} =` ;
-    displayOperation.appendChild(pDos);
-
-    pUno.innerHTML = `${historicResult[3]} `;
-    displayRes.appendChild(pUno);
-}
-
-function showResultEqual(){
-    pDos= historicResult[4]
-    displayOperation.appendChild(pDos)
-}
-
-function showRes(res){
-    if( res == '+' || res == '-' || res == '*' || res == '%' || res == '/' || res == '+-'){
-        showNumberUp();
-    }else
-    if (res === '=') {
-        showResult();
-    }else{
-        showNumber();
+function isDuplicatedOperator(operator) {
+    if(isOperator(arrEntry[arrEntry.length - 1]) && numberCha === '') {
+        arrEntry[arrEntry.length - 1] = operator;
+    } else if(numberCha !== ''){
+        arrEntry.push(numberCha, operator);
+        numberCha = '';
     }
-
 }
 
-function mostrar (){
-    showHistoric()
-    cont = historic.length;
-    console.log(historic[cont - 1])
-}
-function addOperator(operator){
-    if(disponibleOpe) {
-        if (resToArr.length >= 2 ) {
-            //console.log(resToArr.length)
-            equal()
-            resToArr.push(result, operator);
-            showRes(operator);
-            result='';
-            disponibleOpe = false
-        }else{
-            resToArr.push(result, operator);
-            showRes(operator);
-            result='';
-            disponibleOpe = false
-            }
-    }
-    
-    return resToArr;
+function saveOperation() {
+    if(numberCha !== '') arrEntry.push(numberCha);
 
-    // if (resToArr.length >= 2 ) {
-    //     //console.log(resToArr.length)
-    //     equal()
-    //     resToArr.push(result, operator);
-    //     showRes(operator);
-    //     result='';
-    //     mostrar()
-    // }else{
-    //     //Comprovar si resultado es un numero
-    //     if( !isNaN( result.slice(0, -1) )  && (result !== '' || ) {
-    //         resToArr.push(result, operator);
-    //         showRes(operator);
-    //         result='';
-    //         mostrar()
-    //     } else {
-    //         resToArr.push(0, operator);
-    //         mostrar()
-    //     }
-    //}
-    //return resToArr;
+    if(arrEntry.length > 2) {
+        equal();
+        clearAll();
+    }
 }
 
-function equal(){
-    if(result == '') {
-        return false;
-    }
+function equal() {
+    (holdTotal === 0) ? aux = 0 : aux = holdTotal;
 
-    ( holdTotal === 0) ? aux=0 : aux = holdTotal;
-    resToArr.push(result);
-
-    if(resToArr.length < 3) {
-        return false;
-    }
-
-    for (let index = 0 ; index < resToArr.length; index += 2 ) {
-        (index === 0) ? paso = resToArr[index] : paso = total;
-        switch (resToArr[index+1]){
-            case '+':
-                total= parseFloat(paso)  + parseFloat(resToArr[index+2]);
-                aux += total;
-                break;
-            case '-':
-                total= parseFloat(paso)  - parseFloat(resToArr[index+2]);
-                aux += total;
-                break;
-            case '*':
-                total= parseFloat(paso)  * parseFloat(resToArr[index+2]);
-                aux += total;
-                break;
-            case '/':
-                total= parseFloat(paso)  / parseFloat(resToArr[index+2]);
-                aux += total;
-                break;
-            case '%':
-                total= parseFloat(paso)  % parseFloat(resToArr[index+2]);
-                aux += total;
-                break;
-        }
+    for (let index = 0 ; index < arrEntry.length - 2; index += 2 ) {
+        (index === 0) ? paso = arrEntry[index] : paso = total;
+        total = calculate(parseFloat(paso), parseFloat(arrEntry[index + 2]), arrEntry[index + 1]);
         holdTotal=total;
+        historic.push([paso, arrEntry[index + 1], arrEntry[index + 2], holdTotal]);
         aux=0;
     }
-    resToArr.push(holdTotal)
-    historic.push(resToArr);
-    console.log(historic)
-
-    mostrar()
-
-    resToArr=[];
-    result= holdTotal;
-    total=null;
-    disponibleOpe = true
-    //newP.innerHTML += ` =  ${holdTotal}`;
 }
-
-function clearAll(){
-    result='';
-    resToArr=[];
-    pUno.innerHTML= '';
-    pDos.innerHTML= '';
-}
-
-function visualiza_primero() {
-    document.getElementById('primero').style.visibility='visible';
-    document.getElementById('primero').style.display='block';
-    document.getElementById('segundo').style.visibility='hidden';
-    document.getElementById('segundo').style.display='none';
-    cuerpoweb.classList.toggle("oscuro");
-};
-function visualiza_segundo() {
-    document.getElementById('segundo').style.visibility='visible';
-    document.getElementById('segundo').style.display='block';
-    document.getElementById('primero').style.visibility='hidden';
-    document.getElementById('primero').style.display='none';
-    cuerpoweb.classList.toggle("oscuro");
-};
-
 
 function convertSign() {
-    if(result != '') {
-        (Math.sign(result) == 1 || result == '0') ? result = -result : result = Math.abs(result);
-        pUno.innerHTML= result;
+    if(numberCha != '') {
+        (Math.sign(numberCha) == 1 || numberCha == '0') ? numberCha = -numberCha : numberCha = Math.abs(numberCha);
+        SCREEN_OPERATION.innerHTML= numberCha;
     }
 }
 
-function oculto() {
-    var desaparecer = document.getElementById("myDIV");
-    if (desaparecer.style.display === "none") {
-        showHistoric()
-        desaparecer.style.display = "block";
-    } else {
-        desaparecer.style.display = "none";
-    }
+function clearAll() {
+    numberCha = '';
+    holdTotal = 0;
+    arrEntry = [];
 }
 
-
-function showHistoric(){
-    resetHistorichtml()
-historic.forEach(element => {
-    let itemP=document.createElement("p")
-
-    itemP.innerHTML= `${element[0]} ${element[1]} ${element[2]} = ${element[3]}`
-    historico.appendChild(itemP)
-
-
-    console.log(itemP.innerHTML)
-});
-}
-
-function resetHistorichtml(){
-   while(historico.firstChild){
-    historico.removeChild(historico.lastChild)}
-   }
+// let countNumbers = arrEntry.reduce((count,value) =>{ if(!isNaN(value)) return count+1; else return count; },0);
+// let countOperators = arrEntry.reduce((count,value) =>{ if(isOperator(value)) return count+1; else return count; },0);
