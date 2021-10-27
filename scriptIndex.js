@@ -5,7 +5,6 @@ const SCREEN_RESULT = document.getElementById('screenResult');
 let numberCha = '';
 let arrEntry = [];
 let historic = [];
-let holdTotal = 0;
 
 function calculate(left, right, operator) {
     switch (operator) {
@@ -27,6 +26,7 @@ function calculate(left, right, operator) {
 // Add number and call function to display
 function addNumber(num){
     numberCha += num;
+    saveOperation();
 }
 
 function isOperator(value){
@@ -40,6 +40,8 @@ function addOperator(operator) {
         arrEntry.push(numberCha,operator);
         numberCha = '';
     }
+
+    saveOperation();
 }
 
 function isDuplicatedOperator(operator) {
@@ -52,24 +54,21 @@ function isDuplicatedOperator(operator) {
 }
 
 function saveOperation() {
-    if(numberCha !== '') arrEntry.push(numberCha);
-
-    if(arrEntry.length > 2) {
-        equal();
-        clearAll();
+    if(arrEntry.length === 2) {
+        if(numberCha !== '') {
+            arrEntry.push(numberCha);
+        }
+        if(arrEntry.length === 3) {
+            equal();
+        }
     }
 }
 
 function equal() {
-    (holdTotal === 0) ? aux = 0 : aux = holdTotal;
-
-    for (let index = 0 ; index < arrEntry.length - 2; index += 2 ) {
-        (index === 0) ? paso = arrEntry[index] : paso = total;
-        total = calculate(parseFloat(paso), parseFloat(arrEntry[index + 2]), arrEntry[index + 1]);
-        holdTotal=total;
-        historic.push([paso, arrEntry[index + 1], arrEntry[index + 2], holdTotal]);
-        aux=0;
-    }
+    const TOTAL = calculate(parseFloat(arrEntry[0]), parseFloat(arrEntry[2]), arrEntry[1]);
+    historic.push(arrEntry.concat([TOTAL]));
+    arrEntry = [];
+    numberCha = TOTAL;
 }
 
 function convertSign() {
@@ -81,7 +80,6 @@ function convertSign() {
 
 function clearAll() {
     numberCha = '';
-    holdTotal = 0;
     arrEntry = [];
 }
 
