@@ -5,6 +5,7 @@ const SCREEN_RESULT = document.getElementById('screenResult');
 let numberCha = '';
 let arrEntry = [];
 let historic = [];
+let operationCompleted = false;
 
 function calculate(left, right, operator) {
     switch (operator) {
@@ -25,6 +26,9 @@ function calculate(left, right, operator) {
 
 // Add number and call function to display
 function addNumber(num){
+    if(!operationCompleted) {
+        numberCha = '';
+    }
     numberCha += num;
     saveOperation();
 }
@@ -36,6 +40,11 @@ function isOperator(value){
 function addOperator(operator) {
     if(arrEntry.length > 1) {
         isDuplicatedOperator(operator);
+    } else if(operationCompleted) {
+        arrEntry[0] = historic[historic.length - 1][3];
+        arrEntry.push(operator);
+        numberCha = '';
+        operationCompleted = false;
     } else {
         arrEntry.push(numberCha,operator);
         numberCha = '';
@@ -60,6 +69,7 @@ function saveOperation() {
         }
         if(arrEntry.length === 3) {
             equal();
+            arrEntry.push(historic[historic.length - 1][3]);
         }
     }
 }
@@ -69,6 +79,7 @@ function equal() {
     historic.push(arrEntry.concat([TOTAL]));
     arrEntry = [];
     numberCha = TOTAL;
+    operationCompleted = true;
 }
 
 function convertSign() {
