@@ -1,6 +1,8 @@
 const OPERATORS = ["*", "/", "+", "-"];
 const SCREEN_OPERATION = document.getElementById('screenOperation');
 const SCREEN_RESULT = document.getElementById('screenResult');
+const ADD_DIV = document.createElement('div')
+
 
 let numberCha = '';
 let arrEntry = [];
@@ -27,6 +29,7 @@ function calculate(left, right, operator) {
 // Add number and call function to display
 function addNumber(num){
     numberCha += num;
+    showNumber(num)
 }
 
 function isOperator(value){
@@ -40,15 +43,31 @@ function addOperator(operator) {
         arrEntry.push(numberCha,operator);
         numberCha = '';
     }
+    //show display operation
+    contarray= arrEntry.length
+    //console.log('array com num e operation', arrEntry[contarray-2], arrEntry[contarray-1])
+    showOperations(arrEntry[contarray-2], arrEntry[contarray-1])
 }
 
 function isDuplicatedOperator(operator) {
     if(isOperator(arrEntry[arrEntry.length - 1]) && numberCha === '') {
         arrEntry[arrEntry.length - 1] = operator;
-    } else if(numberCha !== ''){
-        arrEntry.push(numberCha, operator);
-        numberCha = '';
-    }
+    }else
+    if(numberCha !== ''){
+        //console.log('arraynumbercha && operator',numberCha, operator )
+        if(arrEntry.length >= 4){
+            equal()
+            arrEntry.push(numberCha, operator);
+            numberCha = '';
+            showOperations(numberCha, operator)
+        }
+    }   
+    // show operations com mais arrays
+    //console.log('historic', historic)
+    //console.log('lastHistoric', lastHistoric)
+    contHistoric= historic.length
+    lastHistoric= historic[contHistoric-1]
+    showOperations(lastHistoric[0], lastHistoric[1])
 }
 
 function saveOperation() {
@@ -70,6 +89,9 @@ function equal() {
         historic.push([paso, arrEntry[index + 1], arrEntry[index + 2], holdTotal]);
         aux=0;
     }
+    showResult(holdTotal)
+    console.log('este es holdtotal', holdTotal);
+    console.log('este es historico', historic);
 }
 
 function convertSign() {
@@ -84,6 +106,23 @@ function clearAll() {
     holdTotal = 0;
     arrEntry = [];
 }
+
+function showOperations(num, operador){
+    ADD_DIV.innerHTML = num + operador;
+    SCREEN_OPERATION.appendChild(ADD_DIV)
+}
+
+function showNumber(num){
+    ADD_DIV.innerHTML= num;
+    SCREEN_RESULT.appendChild(ADD_DIV)
+}
+
+function showResult(num){
+    ADD_DIV.innerHTML = num;
+    SCREEN_OPERATION.appendChild(ADD_DIV)
+}
+
+
 
 // let countNumbers = arrEntry.reduce((count,value) =>{ if(!isNaN(value)) return count+1; else return count; },0);
 // let countOperators = arrEntry.reduce((count,value) =>{ if(isOperator(value)) return count+1; else return count; },0);
