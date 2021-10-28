@@ -28,11 +28,8 @@ function calculate(left, right, operator) {
 // Add number and call function to display
 function addNumber(num){
     numberCha += num;
-<<<<<<< HEAD
     showNumber(num)
-=======
     saveOperation();
->>>>>>> e11aa484553706a3a418fc478fb32f986ad69707
 }
 
 function isOperator(value){
@@ -46,15 +43,12 @@ function addOperator(operator) {
         arrEntry.push(numberCha,operator);
         numberCha = '';
     }
-<<<<<<< HEAD
     //show display operation
     contarray= arrEntry.length
     //console.log('array com num e operation', arrEntry[contarray-2], arrEntry[contarray-1])
     showOperations(arrEntry[contarray-2], arrEntry[contarray-1])
-=======
 
     saveOperation();
->>>>>>> e11aa484553706a3a418fc478fb32f986ad69707
 }
 
 function isDuplicatedOperator(operator) {
