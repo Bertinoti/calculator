@@ -7,7 +7,6 @@ const ADD_DIV = document.createElement('div')
 let numberCha = '';
 let arrEntry = [];
 let historic = [];
-let holdTotal = 0;
 
 function calculate(left, right, operator) {
     switch (operator) {
@@ -29,7 +28,11 @@ function calculate(left, right, operator) {
 // Add number and call function to display
 function addNumber(num){
     numberCha += num;
+<<<<<<< HEAD
     showNumber(num)
+=======
+    saveOperation();
+>>>>>>> e11aa484553706a3a418fc478fb32f986ad69707
 }
 
 function isOperator(value){
@@ -43,10 +46,15 @@ function addOperator(operator) {
         arrEntry.push(numberCha,operator);
         numberCha = '';
     }
+<<<<<<< HEAD
     //show display operation
     contarray= arrEntry.length
     //console.log('array com num e operation', arrEntry[contarray-2], arrEntry[contarray-1])
     showOperations(arrEntry[contarray-2], arrEntry[contarray-1])
+=======
+
+    saveOperation();
+>>>>>>> e11aa484553706a3a418fc478fb32f986ad69707
 }
 
 function isDuplicatedOperator(operator) {
@@ -71,11 +79,13 @@ function isDuplicatedOperator(operator) {
 }
 
 function saveOperation() {
-    if(numberCha !== '') arrEntry.push(numberCha);
-
-    if(arrEntry.length > 2) {
-        equal();
-        clearAll();
+    if(arrEntry.length === 2) {
+        if(numberCha !== '') {
+            arrEntry.push(numberCha);
+        }
+        if(arrEntry.length === 3) {
+            equal();
+        }
     }
 }
 
@@ -92,6 +102,13 @@ function equal() {
     showResult(holdTotal)
     console.log('este es holdtotal', holdTotal);
     console.log('este es historico', historic);
+
+    /*
+    const TOTAL = calculate(parseFloat(arrEntry[0]), parseFloat(arrEntry[2]), arrEntry[1]);
+    historic.push(arrEntry.concat([TOTAL]));
+    arrEntry = [];
+    numberCha = TOTAL;
+    */
 }
 
 function convertSign() {
@@ -103,7 +120,6 @@ function convertSign() {
 
 function clearAll() {
     numberCha = '';
-    holdTotal = 0;
     arrEntry = [];
 }
 
