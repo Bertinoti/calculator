@@ -15,7 +15,7 @@ body{
     font-family: 'Lato', sans-serif;
 }
 
-header, #main-content, #result, #screenOperation {
+header, #main-content, #screenResult, #screenOperation {
     position: relative;
     margin: 0 auto;
     width: 320px;
@@ -25,15 +25,16 @@ header, #main-content, #result, #screenOperation {
     text-align: right;
 }
 
-#result, #screenOperation{
+#screenResult, #screenOperation{
     height: 40px;
     padding: .8em 0;
-}
-
-#screenOperation{
     background-color: #7f8388;
     padding-top: 0;
     padding-bottom: 0;
+}
+
+#screenOperation{
+    background-color: #6c6c6d;
 }
 i{
     padding: 2em;
